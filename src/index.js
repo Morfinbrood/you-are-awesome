@@ -5,24 +5,24 @@ const createEnumerableProperty = (propertyName) => {
 };
 
 const createNotEnumerableProperty = (propertyName) => {
+    return propertyName
 };
 const createProtoMagicObject = () => {
-
+    return this;
 };
 
+let sum = 0;
 const incrementor = () => {
-    // let increment = 0;
-    // let counter = function (){
-    //     increment++;
-    //     return counter ;
-    // }
+    let inner = function () {
+        sum++;
+        return inner;
+    }
+    inner.valueOf = function () {
+        return ++sum;
+    };
+    return inner;
+}
 
-    // counter.valueOf ()= function (){
-    //     return increment;
-    // }
-
-    // return counter;
-};
 const asyncIncrementor = () => { };
 const createIncrementer = () => { };
 
