@@ -5,10 +5,10 @@ const createEnumerableProperty = (propertyName) => {
 };
 
 const createNotEnumerableProperty = (propertyName) => {
-    return propertyName
+    return Symbol(propertyName)
 };
+
 const createProtoMagicObject = () => {
-    return this;
 };
 
 let sum = 0;
@@ -18,12 +18,15 @@ const incrementor = () => {
         return inner;
     }
     inner.valueOf = function () {
-        return ++sum;
+        sum++;
+        return sum;
     };
     return inner;
 }
 
-const asyncIncrementor = () => { };
+const asyncIncrementor = () => {
+};
+
 const createIncrementer = () => { };
 
 // return same argument not earlier than in one second, and not later, than in two
