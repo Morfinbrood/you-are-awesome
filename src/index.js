@@ -9,6 +9,7 @@ const createNotEnumerableProperty = (propertyName) => {
 };
 
 const createProtoMagicObject = () => {
+    return Function;
 };
 
 let sum = 0;
