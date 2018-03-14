@@ -31,7 +31,15 @@ const asyncIncrementor = () => {
     })
 };
 
-const createIncrementer = () => { };
+const createIncrementer = () => {
+    let sumArr = [1];
+    let inc = sumArr;
+    inc.next = function () {
+        sumArr[0]++;
+        return { 'value': sumArr[0] - 1 };
+    }
+    return inc;
+};
 
 // return same argument not earlier than in one second, and not later, than in two
 const returnBackInSecond = () => { };
