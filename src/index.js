@@ -24,7 +24,11 @@ const incrementor = () => {
     return inner;
 }
 
+let sumAsync = 0;
 const asyncIncrementor = () => {
+    return new Promise(function (resolve, reject) {
+        resolve(++sumAsync);
+    })
 };
 
 const createIncrementer = () => { };
